@@ -1,31 +1,40 @@
 import 'package:flutter/material.dart';
- void main(){
-   runApp(MyApp());
- }
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'all_fields_form_screen.dart';
+import 'login_screen.dart';
+import 'register_screen.dart';
+import 'home_screen.dart';
 
- class MyApp extends StatelessWidget {
-   const MyApp({super.key});
+void main() {
+  runApp(const MyApp());
+}
 
-   @override
-   Widget build(BuildContext context) {
-     return MaterialApp(
-       debugShowCheckedModeBanner: false,
-       home: ScreenNavigation(),
-     );
-   }
- }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
- class ScreenNavigation extends StatefulWidget {
-   const ScreenNavigation({super.key});
- 
-   @override
-   State<ScreenNavigation> createState() => _ScreenNavigationState();
- }
- 
- class _ScreenNavigationState extends State<ScreenNavigation> {
-   @override
-   Widget build(BuildContext context) {
-     return const Placeholder();
-   }
- }
- 
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context , child) {
+        return MaterialApp(
+          title: 'Flutter Forms',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.red,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          initialRoute: '/login',
+          routes: {
+            '/login': (context) => const LoginScreen(),
+            '/register': (context) => const RegisterScreen(),
+            '/home': (context) => const HomeScreen(),
+            '/all_fields_form': (context) => const AllFieldsFormScreen(),
+          },
+        );
+      },
+    );
+  }
+}
