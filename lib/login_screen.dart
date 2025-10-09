@@ -38,13 +38,13 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 5.h),
           child: Form(
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children:[
-                SizedBox(height: 20.h),
+                SizedBox(height: 10.h),
                 Text(
                   'Login Form',
                   style: TextStyle(
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 40.h),
+                SizedBox(height: 20.h),
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,

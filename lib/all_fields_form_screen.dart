@@ -12,7 +12,7 @@ class AllFieldsFormScreen extends StatefulWidget {
 class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
   final _multilineTextController = TextEditingController();
   String? _selectedRadioValue = 'product 2';
-  bool _switchValue = false;
+  bool isSwitched = false;
   final Map<String, bool> _checkboxValues = {
     'product 1': true,
     'product 2': false,
@@ -89,17 +89,16 @@ class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildSectionTitle('TareaText test'),
-                SizedBox(height: 8.h),
+                SizedBox(height: 2.h),
                 TextFormField(
                   controller: _multilineTextController,
                   maxLines: 4,
                   decoration: const InputDecoration(
                     hintText: 'hola a todos',
-                    border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(height: 24.h),
-      
+
                 _buildSectionTitle('Radio Button tests'),
                 for (var item in _dropdownItems)
                   RadioListTile<String>(
@@ -114,20 +113,26 @@ class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
                     },
                   ),
                 SizedBox(height: 24.h),
-      
-      
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: _buildSectionTitle('Switch test'),
-                  trailing: Switch(
-                    value: _switchValue,
-                    onChanged: (value) {
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Switch test',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Switch(value: isSwitched,
+                        onChanged:(value){
                       setState(() {
-                        _switchValue = value;
+                        isSwitched = value;
                       });
-                    },
-                  ),
+                        }
+                    )
+                  ],
                 ),
+
                 SizedBox(height: 24.h),
                 _buildSectionTitle('Checkbox test'),
                 for (var key in _checkboxValues.keys)
@@ -141,7 +146,7 @@ class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
                       });
                     },
                   ),
-                SizedBox(height: 24.h),
+                SizedBox(height: 10.h),
                 _buildSectionTitle('Select test'),
                 SizedBox(height: 8.h),
                 DropdownButtonFormField<String>(
@@ -161,17 +166,17 @@ class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 40.h),
+                SizedBox(height: 10.h),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: _sendData,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Colors.blueAccent,
                       foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 16.h),
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
                     ),
-                    child: Text('Send', style: TextStyle(fontSize: 18.sp)),
+                    child: Text('Send', style: TextStyle(fontSize: 15.sp)),
                   ),
                 ),
               ],
