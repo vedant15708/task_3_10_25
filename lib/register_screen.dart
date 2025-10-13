@@ -27,7 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void register() {
     if (formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registration Successful! Redirecting to login...')),
+        const SnackBar(content: Text('Registration Successful! Redirecting to All field...')),
       );
 
 
@@ -38,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) {
-          Navigator.pushReplacementNamed(context, '/login');
+          Navigator.pushReplacementNamed(context, '/all_fields_form');
         }
       });
     }

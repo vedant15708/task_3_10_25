@@ -150,9 +150,11 @@ class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
                 _buildSectionTitle('Select test'),
                 SizedBox(height: 8.h),
                 DropdownButtonFormField<String>(
+                  isExpanded: true,
                   value: _selectedDropdownValue,
                   items: _dropdownItems.map((String value) {
                     return DropdownMenuItem<String>(
+
                       value: value,
                       child: Text(value),
                     );
@@ -163,7 +165,7 @@ class _AllFieldsFormScreenState extends State<AllFieldsFormScreen> {
                     });
                   },
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+
                   ),
                 ),
                 SizedBox(height: 10.h),

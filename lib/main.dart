@@ -27,9 +27,8 @@ class MyApp extends StatelessWidget {
             visualDensity: VisualDensity.adaptivePlatformDensity,
             useMaterial3: false,
           ),
-          initialRoute: '/login',
+          initialRoute: '/register',
           routes: {
-            '/login': (context) => const LoginScreen(),
             '/register': (context) => const RegisterScreen(),
             '/home': (context) => const HomeScreen(),
             '/all_fields_form': (context) => const AllFieldsFormScreen(),
