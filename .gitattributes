@@ -1,10 +1,5 @@
-# Tell GitHub Linguist to ignore native build files
-android/* linguist-vendored
-ios/* linguist-vendored
-macos/* linguist-vendored
-windows/* linguist-vendored
-linux/* linguist-vendored
-web/* linguist-vendored
-
-# Optional: ignore build and generated files
-build/* linguist-vendored
+*.dart linguist-language=Dart
+*.cpp linguist-vendored
+*.h linguist-vendored
+*.cmake linguist-vendored
+CMakeLists.txt linguist-vendored
